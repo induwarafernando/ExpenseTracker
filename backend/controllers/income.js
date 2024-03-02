@@ -1,6 +1,6 @@
 
 
-exports.addIncome = (req, res) => {
-    console.log(req.body)
+exports.addIncome = async (req, res) => {
+    console.log(req.body);
 }
 
