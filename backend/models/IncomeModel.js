@@ -33,7 +33,7 @@ const IncomeSchema = new mongoose.Schema({
         maxlength: 20,
         trim: true
     },
-
+ 
 },
     { timestamps: true }
 )
