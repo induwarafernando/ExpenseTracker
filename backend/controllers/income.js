@@ -1,4 +1,5 @@
 const IncomeSchema = require("../models/IncomeModel");
+const { param } = require("../routes/transactions");
 
 exports.addIncome = async (req, res) => {
     const { title, amount, date, category, description } = req.body;
@@ -31,7 +32,7 @@ exports.addIncome = async (req, res) => {
 
 exports.getIncome = async (req, res) => {
     try {
-        const incomes = await IncomeSchema.find().sort({createdAt: -1});
+        const income = await IncomeSchema.find().sort({createdAt: -1});
         res.status(200).json(income);
     } catch (error) {
         console.error("Error getting income:", error);
@@ -41,6 +42,7 @@ exports.getIncome = async (req, res) => {
 
 exports.deleteIncome = async (req, res) => {
     const { id } = req.params;
+    console.log(params);
     IncomeSchema.findByIdAndDelete(id)
         .then((income) => {
             res.status(200).json({ message: "Income deleted successfully" });
