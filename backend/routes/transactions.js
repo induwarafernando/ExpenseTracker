@@ -4,7 +4,9 @@ const router = require('express').Router();
 
 
 
-router.get('/add-income',addIncome)
+router.post('/add-income',addIncome)
 
 
 module.exports = router;
+
+
