@@ -1,4 +1,4 @@
-const IncomeModel = require("../models/IncomeModel");
+const IncomeSchema = require("../models/IncomeModel");
 
 exports.addIncome = async (req, res) => {
     const { title, amount, date, category, description } = req.body;
@@ -28,3 +28,26 @@ exports.addIncome = async (req, res) => {
     }
     console.log(income);
 };
+
+exports.getIncome = async (req, res) => {
+    try {
+        const incomes = await IncomeSchema.find().sort({createdAt: -1});
+        res.status(200).json(income);
+    } catch (error) {
+        console.error("Error getting income:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+
+exports.deleteIncome = async (req, res) => {
+    const { id } = req.params;
+    IncomeSchema.findByIdAndDelete(id)
+        .then((income) => {
+            res.status(200).json({ message: "Income deleted successfully" });
+        })
+        .catch((error) => {
+            console.error("Error deleting income:", error);
+            res.status(500).json({ message: "Server error" });
+        });
+
+}
