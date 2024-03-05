@@ -48,6 +48,7 @@ exports.deleteIncome = async (req, res) => {
         })
         .catch((error) => {
             console.error("Error deleting income:", error);
+            //display error message in the console
             res.status(500).json({ message: "Server error" });
         });
 
