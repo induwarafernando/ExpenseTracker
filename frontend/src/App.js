@@ -1,10 +1,15 @@
 
 function App() {
   return (
-    <div className="App">
+    <AppStyled className="App">
       
-    </div>  
+    </AppStyled>  
   );
 }
+
+const AppStyled  = styled.div`
+  height: 100vh;
+
+`;
 
 export default App;
