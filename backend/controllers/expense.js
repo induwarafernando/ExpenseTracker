@@ -1,10 +1,10 @@
-const IncomeSchema = require("../models/IncomeModel");
+const ExpenseSchema = require("../models/ExpenseModel");
 const { param } = require("../routes/transactions");
 
-exports.addIncome = async (req, res) => {
+exports.addExpense = async (req, res) => {
     const { title, amount, date, category, description } = req.body;
 
-    const income = new IncomeSchema({
+    const expense = new ExpenseSchema({
         title,
         amount,
         date,
@@ -21,33 +21,33 @@ exports.addIncome = async (req, res) => {
             return res.status(400).json({ message: "Amount must be a positive number" });
         }
 
-        await income.save();
-        res.status(200).json({ message: "Income added successfully" });
+        await expense.save();
+        res.status(200).json({ message: "Expense added successfully" });
     } catch (error) {
-        console.error("Error adding income:", error);
+        console.error("Error adding expense:", error);
         res.status(500).json({ message: "Server error" });
     }
-    console.log(income);
+    console.log(expense);
 };
 
-exports.getIncome = async (req, res) => {
+exports.getExpense = async (req, res) => {
     try {
-        const income = await IncomeSchema.find().sort({createdAt: -1});
-        res.status(200).json(income);
+        const expense = await ExpenseSchema.find().sort({createdAt: -1});
+        res.status(200).json(expense);
     } catch (error) {
-        console.error("Error getting income:", error);
+        console.error("Error getting expense:", error);
         res.status(500).json({ message: "Server error" });
     }
 }
 
-exports.deleteIncome = async (req, res) => {
+exports.deleteExpense = async (req, res) => {
     const {id} = req.params;
-    IncomeSchema.findByIdAndDelete(id)
-        .then((income) => {
-            res.status(200).json({ message: "Income deleted successfully", deletedIncome: income });
+    ExpenseSchema.findByIdAndDelete(id)
+        .then((expense) => {
+            res.status(200).json({ message: "Expense deleted successfully", deletedExpense: expense });
         })
         .catch((error) => {
-            console.error("Error deleting income:", error);
+            console.error("Error deleting expense:", error);
             res.status(500).json({ message: "Server error" });
         });
 }
