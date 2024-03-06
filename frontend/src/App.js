@@ -1,17 +1,17 @@
 import styled from "styled-components";
+import bg from "./img/bg.png";
 
 function App() {
   return (
-    <AppStyled className="App">
+    <AppStyled bg={bg} className="App">
       
     </AppStyled>  
   );
 }
 
-// eslint-disable-next-line no-undef
 const AppStyled  = styled.div`
   height: 100vh;
-  background-color: var(--primary-color);
+  background-image: url(${props => props.bg});
 
 `;
 
