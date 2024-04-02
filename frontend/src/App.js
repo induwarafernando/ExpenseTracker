@@ -1,25 +1,23 @@
 import styled from "styled-components";
-import bg from "./img/bg.png";
+import bg from './img/bg.png'
 import { MainLayout } from "./styles/Layouts";
 import Orb from "./Components/Orb/Orb";
 
 function App() {
   return (
-    <AppStyled bg={bg} className="App">
-      <Orb/>
+    <AppStyled className="App" bg={bg}>
       <MainLayout>
-      <h1>Hello</h1>
+        <h1>Hello</h1>
       </MainLayout>
-      
+      <Orb />
     </AppStyled>  
   );
 }
 
-const AppStyled  = styled.div`
+const AppStyled = styled.div`
   height: 100vh;
   background-image: url(${props => props.bg});
   position: relative;
-
 `;
 
 export default App;
