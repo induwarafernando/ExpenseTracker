@@ -4,9 +4,26 @@ import bg from './img/bg.png'
 import { MainLayout } from "./styles/Layouts";
 import Orb from "./Components/Orb/Orb";
 import Navigation from "./Components/Navigation/navigation";
+import Dashboard from "./Components/Dashboard/Dashboard";
+
 
 function App() {
   const [active, setActive] = React.useState(1)
+
+  const displayData = ()  => {
+    switch(active){
+      case 1:
+        return <Dashboard />
+      case 2:
+        return <h1>Services</h1>
+      case 3:
+        return <h1>Projects</h1>
+      case 4:
+        return <h1>Contact</h1>
+      default:
+        return <h1>Home</h1>
+    }
+  }
 
   const orbMemo = useMemo(() => {
     return <Orb />
@@ -17,8 +34,7 @@ function App() {
       <MainLayout>
       <Navigation active={active} setActive={setActive}/>
       <main>
-
-      <h1>App</h1>
+      {displayData}
       </main>
       </MainLayout>
     </AppStyled>  
