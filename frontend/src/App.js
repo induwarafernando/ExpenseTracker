@@ -5,6 +5,9 @@ import { MainLayout } from "./styles/Layouts";
 import Orb from "./Components/Orb/Orb";
 import Navigation from "./Components/Navigation/navigation";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import Income from './Components/Incomes/Income';
+import Expenses from './Components/Expenses/Expenses';
+
 
 
 function App() {
@@ -15,13 +18,13 @@ function App() {
       case 1:
         return <Dashboard />
       case 2:
-        return <h1>Services</h1>
+        return <Dashboard />
       case 3:
-        return <h1>Projects</h1>
+        return <Income />
       case 4:
-        return <h1>Contact</h1>
+        return <Expenses />
       default:
-        return <h1>Home</h1>
+        return <Dashboard />
     }
   }
 
@@ -34,7 +37,7 @@ function App() {
       <MainLayout>
       <Navigation active={active} setActive={setActive}/>
       <main>
-      {displayData}
+      {displayData()}
       </main>
       </MainLayout>
     </AppStyled>  
