@@ -1,44 +1,47 @@
-import React, { useState,useMemo } from 'react'
+import React, { useState, useMemo } from 'react';
 import styled from "styled-components";
-import bg from './img/bg.png'
+import bg from './img/bg.png';
 import { MainLayout } from "./styles/Layouts";
 import Orb from "./Components/Orb/Orb";
 import Navigation from "./Components/Navigation/navigation";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Income from './Components/Incomes/Income';
 import Expenses from './Components/Expenses/Expenses';
-
-
+import { useGlobalContext } from './context/globalContext'; // Import the hook from your context file
 
 function App() {
-  const [active, setActive] = React.useState(1)
+  const [active, setActive] = React.useState(1);
+  const globalContext = useGlobalContext(); // Call the hook to get the context value
+  
+  console.log(globalContext); // Log the context value if needed
 
   const displayData = ()  => {
     switch(active){
       case 1:
-        return <Dashboard />
+        return <Dashboard />;
       case 2:
-        return <Dashboard />
+        return <Dashboard />;
       case 3:
-        return <Income />
+        return <Income />;
       case 4:
-        return <Expenses />
+        return <Expenses />;
       default:
-        return <Dashboard />
+        return <Dashboard />;
     }
   }
 
   const orbMemo = useMemo(() => {
-    return <Orb />
+    return <Orb />;
   }, [])
+
   return (
     <AppStyled className="App" bg={bg}>
       {orbMemo}
       <MainLayout>
-      <Navigation active={active} setActive={setActive}/>
-      <main>
-      {displayData()}
-      </main>
+        <Navigation active={active} setActive={setActive}/>
+        <main>
+          {displayData()}
+        </main>
       </MainLayout>
     </AppStyled>  
   );
@@ -59,8 +62,6 @@ const AppStyled = styled.div`
     &::-webkit-scrollbar{
       width: 0px;
     }
-
-
   }
 `;
 
