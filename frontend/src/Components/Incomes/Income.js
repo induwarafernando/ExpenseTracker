@@ -12,6 +12,9 @@ function Income() {
                     <div className="income-content">
                         <div className='form-container'></div>
                         <div className='incomes'>
+
+
+                            
                             
                         </div>
                     </div>
