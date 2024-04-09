@@ -4,6 +4,7 @@ import { InnerLayout } from '../../styles/Layouts';
 import { useGlobalContext } from '../../context/globalContexts';
 
 import Form from '../Form/form';
+import Form from '../Form/form';
 
 
 function Income() {
