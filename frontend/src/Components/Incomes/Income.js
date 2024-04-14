@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
-import IncomeItem from '../IncomeItem/IncomeItem';
 import Form from '../Form/form';
+import IncomeItem from '../IncomeItem/IncomeItem';
 
 function Income() {
     const {addIncome,incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
@@ -74,4 +74,3 @@ const IncomeStyled = styled.div`
 `;
 
 export default Income
-
