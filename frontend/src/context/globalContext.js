@@ -106,7 +106,6 @@ export const GlobalProvider = ({children}) => {
             {children}
         </GlobalContext.Provider>
     )
-}
 
 export const useGlobalContext = () =>{
     return useContext(GlobalContext)
